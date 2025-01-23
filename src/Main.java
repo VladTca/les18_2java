@@ -1,5 +1,4 @@
-
-
+import java.util.Optional;
 
 public class Main {
     private static final String NUMBER1="zdsfg";
@@ -18,6 +17,8 @@ autoPark.addCar(new Car("dfgkjb63","Mercedes","silver",2020));
         System.out.println();
         autoPark.seekLicense(NUMBER1);
         System.out.println("-----------------");
-        autoPark.seekLicense(NUMBER2);
+        //autoPark.seekLicense(NUMBER2);
+        Optional<Car> foundCar = autoPark.seekLicense(NUMBER2);
+        foundCar.ifPresent(car -> System.out.println("Найдена машина: " + car));
     }
 }

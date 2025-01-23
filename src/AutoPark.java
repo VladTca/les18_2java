@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Optional;
 
 class AutoPark {
     private int capacity;
@@ -20,16 +21,17 @@ class AutoPark {
 
     }
 
-    public void seekLicense (String lic){
+    public Optional<Car> seekLicense (String lic){
 
         for (int i = 0; i < size; i++) {
             if(arrCar[i].getLicensePlate().equals(lic)){
                 System.out.println("Номер найден! В автопарке числится под номером-"+i);
-                System.out.println(arrCar[i]);
-                return;
+                //System.out.println(arrCar[i]);
+                return Optional.of(arrCar[i]);
             }
         }
         System.out.println("Номер не найден!");
+        return Optional.empty();
     }
 
     @Override
